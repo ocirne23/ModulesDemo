@@ -19,11 +19,27 @@ namespace demo
     }
 }
 
-
 export namespace demo
 {
     void Sleep3(uint32 ms) 
     { 
         ::Sleep(ms); 
     }
+}
+
+export
+{
+    void Sleep4(uint32 ms)
+    {
+        ::Sleep(ms);
+    }
+}
+
+export void Sleep5(uint32 ms);
+
+module : private; // Definitions below not visible (essentially as if they were in a .cpp, no inlining)
+
+void Sleep5(uint32 ms) 
+{
+    ::Sleep(ms);
 }
