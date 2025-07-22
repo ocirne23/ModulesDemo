@@ -1,17 +1,29 @@
 export module Common;
 
-export import :BaseTypes; // re-export everything in BaseTypes partition
+export import :BaseTypes; // re-export everything in partitions
+export import :STDIncludes;
 
-// reexport everything in these headers
-export import <fstream>;
-export import <iostream>;
-export import <filesystem>;
-export import <functional>;
-export import <memory>;
-export import <mutex>;
-export import <thread>;
-export import <coroutine>;
-export import <atomic>;
-export import <type_traits>;
-export import <chrono>;
-export import <initializer_list>;
+import Common.Windows;
+
+namespace demo
+{
+    export void Sleep(uint32 ms)
+    {
+        ::Sleep(ms); // Windows.h Sleep
+    }
+
+    export template<typename T>
+    void Sleep2(T ms)
+    {
+        ::Sleep(static_cast<uint32>(ms));
+    }
+}
+
+
+export namespace demo
+{
+    void Sleep3(uint32 ms) 
+    { 
+        ::Sleep(ms); 
+    }
+}

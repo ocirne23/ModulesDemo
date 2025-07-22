@@ -1,6 +1,5 @@
 import Common;
 import Common.SDL;     // for SDL_FRect, SDL_Color
-import Common.Windows; // for Sleep
 import Common.Demo;
 import Common.glm;
 
@@ -45,6 +44,8 @@ int main()
         const SDL_Color color = { .r = 255, .g = 0, .b = 0, .a = 255 };
         renderer.DrawRect(rect, color);
         renderer.Present();
+
+        demo::Sleep(1);
     }
 
     return 0;

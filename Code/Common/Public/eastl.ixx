@@ -1,7 +1,3 @@
-module;
-
-#include <EABase/config/eaplatform.h>
-
 export module Common.eastl;
 
 export import <EASTL/vector.h>;
