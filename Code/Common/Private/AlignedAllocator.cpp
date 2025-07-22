@@ -2,7 +2,7 @@
 
 inline void* allocateAligned(size_t n, size_t align)
 {
-    return _aligned_malloc(n, align);
+    return _aligned_malloc(n, 4);
 }
 
 inline void freeAligned(void* p)
@@ -12,7 +12,7 @@ inline void freeAligned(void* p)
 
 void* operator new(size_t n)
 {
-    return allocateAligned(n, 0);
+    return allocateAligned(n, 4);
 }
 
 void* operator new(size_t n, std::align_val_t align)
@@ -22,7 +22,7 @@ void* operator new(size_t n, std::align_val_t align)
 
 void* operator new[](std::size_t n)
 {
-    return allocateAligned(n, 0);
+    return allocateAligned(n, 4);
 }
 
 void* operator new[](std::size_t n, std::align_val_t align)

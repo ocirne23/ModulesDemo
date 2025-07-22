@@ -48,5 +48,7 @@ int main()
         demo::Sleep(1);
     }
 
-    return 0;
+    demo::vector<int> awa;
+    awa.push_back(42);
+    return awa[0];
 }
